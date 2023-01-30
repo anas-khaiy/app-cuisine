@@ -1,0 +1,15 @@
+<div class="container" id="mainContainer">
+  <div class="row">
+    <div class="col-xs-12 col-lg-4 col-md-4 col-sm-12 mt-3" *ngFor="let itm of listFoods">
+      <div class="card" *ngIf="itm.categorieFood=='patissrie'" style="height: 350px;" >
+        <img [src]="itm.imgFood" class="card-img-top" style="height: 200px; object-fit: cover; object-position: center;" alt="...">
+        <h5 class="card-title m-auto mt-2">{{itm.titleFood}}</h5>
+        <div class="card-body">
+          <p class="card-text">{{itm.descFood}}</p>
+        </div>
+      </div>
+    </div>
+    
+</div>
+
+</div>

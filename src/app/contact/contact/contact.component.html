@@ -1,0 +1,38 @@
+<div class="container mt-5" id="mainContainer">
+    <div class="row">
+        <div class="col-lg-6">
+            <img src="assets/contactUs.jpg" class="img-fluid rounded" alt="">
+        </div>
+        <div class="col-lg-6 mt-5">
+            <p class="h2">Contact Us :</p>
+            <form class="mt-3" #f="ngForm" (ngSubmit)="get(f)">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Your Name :</label>
+                    <input type="text" class="form-control" id="username" name="username" #username="ngModel" ngModel placeholder="Name ..." style="background-color: rgb(245, 245, 245) !important;" required minlength="5">
+                    <p *ngIf="username.errors?.['required'] && username.touched" style="color: rgb(254, 137, 137);">* This Field Is Required</p>
+                    <p *ngIf="username.errors?.['minlength'] && username.touched" style="color: rgb(254, 137, 137);">* Most Have atleast 5 characters</p>
+
+                  </div>
+
+                <div class="mb-3">
+                    <label for="emailUser" class="form-label">Email address :</label>
+                    <input type="email" class="form-control" id="emailUser" placeholder="Your Email ..." name="emailUser" #emailUser="ngModel" ngModel style="background-color: rgb(245, 245, 245) !important;" required email>
+                    <p *ngIf="emailUser.errors?.['required'] && emailUser.touched" style="color: rgb(254, 137, 137);">* This Field Is Required</p>
+                    <p *ngIf="emailUser.errors?.['email'] && emailUser.touched" style="color: rgb(254, 137, 137);">* Invalid Email</p>
+
+                </div>
+                  <div class="mb-3">
+                    <label for="messageUser" class="form-label">Message</label>
+                    <textarea class="form-control" id="messageUser" rows="3" placeholder="Message ..." name="messageUser" #messageUser="ngModel" ngModel style="background-color: rgb(245, 245, 245) !important;" required minlength="10"></textarea>
+                    <p *ngIf="messageUser.errors?.['required'] && messageUser.touched" style="color: rgb(254, 137, 137);">* This Field Is Required</p>
+                    <p *ngIf="messageUser.errors?.['minlength'] && messageUser.touched" style="color: rgb(254, 137, 137);">* Most Have atleast 10 characters</p>
+
+                </div>
+                  <button type="submit" class="btn btn-primary" id="btnSubmit" [disabled]="f.invalid">Submit</button>                  
+              </form>
+              <div id="SubmitSucces">
+
+              </div>
+        </div>
+    </div>
+</div>
